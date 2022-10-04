@@ -1,17 +1,15 @@
-enum Role {ADMIN = 'ADMIN', USER = 'USER', AUTHOR = "AUTHOR"}
-
-const person = {
-  name: "Dat",
-  age: 30,
-  hobbies : ['Football', 'Anime'], 
-  role : Role.ADMIN
-};
-
-console.log(person.name);
-
-for (const hobby of person.hobbies) {
-    console.log(hobby.toUpperCase());
+function combine(n1: number | string, n2: number | string) {
+  let result;
+  if (typeof n1 === "number" && typeof n2 === "number") {
+    result = n1 + n2;
+  } else {
+    result = n1.toString() + n2.toString();
+  }
+  return result;
 }
-if(person.role == Role.ADMIN) {
-    console.log('Role is Admin');
-}
+
+const combineAges = combine(30, 26);
+console.log(combineAges);
+
+const combineNames = combine("Max", "Anna");
+console.log(combineNames);
