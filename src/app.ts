@@ -1,14 +1,11 @@
-// const add = (a: number, b: number) => a + b;
+class Department {
+  name: string;
 
-// const printOutput: (a: number | string) => void = (output) =>
-//   console.log(output);
+  constructor(n: string) {
+    this.name = n;
+  }
+}
 
-// printOutput(add(1, 2));
+const accounting = new Department("Accounting");
 
-const add = (...numbers: number[]) => {
-  return numbers.reduce((curResult, curValue) => {
-    return curResult + curValue;
-  }, 0);
-};
-const addedNumbers = add(5, 10, 20, 30);
-console.log(addedNumbers);
+console.log(accounting);
