@@ -1,5 +1,6 @@
-const button = document.querySelector("button")!;
+const add = (a: number, b: number) => a + b;
 
-button.addEventListener("click",() => {
-  console.log('Clicked!');
-})
+const printOutput: (a: number | string) => void = (output) =>
+  console.log(output);
+
+printOutput(add(1, 2));
