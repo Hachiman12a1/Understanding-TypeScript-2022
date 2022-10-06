@@ -2,10 +2,16 @@ class Department {
   //  private id : string;
   //  private name: string;
   protected employees: string[] = [];
+  static fiscalYear = 2020;
 
   constructor(private id: string, public name: string) {
     // this.id = id;
     // this.name = name;
+    console.log(Department.fiscalYear);
+  }
+
+  static createEmployee(name: string) {
+    return { nameEmployee: name };
   }
 
   describe(this: Department) {
@@ -87,6 +93,9 @@ accounting.addEmployee("Max");
 accounting.addEmployee("Mana");
 
 accounting.printEmployeeInfo();
+
+const employee1 = Department.createEmployee("Employee1");
+console.log(employee1);
 
 // const accountingCopy = { name: "DUMMY", describe: accounting.describe };
 // accountingCopy.describe();
