@@ -41,7 +41,7 @@ function extractAndConvert<T extends object, U extends keyof T>(
 }
 console.log(extractAndConvert({ name: "Max" }, "name"));
 
-class DataStorage<T> {
+class DataStorage<T extends string | number | boolean> {
   private data: T[] = [];
 
   addItem(item: T) {
@@ -65,13 +65,13 @@ textStorage.addItem("Manu");
 textStorage.removeItem("Max");
 console.log(textStorage.getItems());
 
-const objStorage = new DataStorage<object>();
-const maxObj = { name: "Max" };
-objStorage.addItem(maxObj);
-objStorage.addItem({ name: "Manu" });
+// const objStorage = new DataStorage<object>();
+// const maxObj = { name: "Max" };
+// objStorage.addItem(maxObj);
+// objStorage.addItem({ name: "Manu" });
 
-objStorage.removeItem(maxObj);
-console.log(objStorage.getItems());
+// objStorage.removeItem(maxObj);
+// console.log(objStorage.getItems());
 
 interface CourseGoal {
   title: string;
