@@ -21,6 +21,10 @@ type Numeric = number | boolean;
 
 type Universal = Combinabled & Numeric;
 
+function add(a : number, b:number) : number;
+function add (a : string, b: string) : string;
+function add (a : string, b: number) : string;
+function add (a: number, b: string) : string;
 function add(a: Combinabled, b: Combinabled) {
   if (typeof a === "string" || typeof b === "string") {
     return a.toString() + b.toString();
@@ -28,93 +32,97 @@ function add(a: Combinabled, b: Combinabled) {
   return a + b;
 }
 
-type UnknownEmployee = Employee | Admin;
+const result = add('Max', 'Schwarz');
+result.split(' ')
 
-function printEmployeeInfo(emp: UnknownEmployee) {
-  console.log("Name: " + emp.name);
 
-  if ("privileges" in emp) {
-    console.log("privileges: " + emp.privileges);
-  }
-  if ("startDate" in emp) {
-    console.log("StartDate: " + emp.startDate);
-  }
-}
+// type UnknownEmployee = Employee | Admin;
 
-printEmployeeInfo({
-  name: "Dat",
-  privileges: ["Intern React"],
-  startDate: new Date(),
-});
+// function printEmployeeInfo(emp: UnknownEmployee) {
+//   console.log("Name: " + emp.name);
 
-class Car {
-  drive() {
-    console.log("Driving...");
-  }
-}
+//   if ("privileges" in emp) {
+//     console.log("privileges: " + emp.privileges);
+//   }
+//   if ("startDate" in emp) {
+//     console.log("StartDate: " + emp.startDate);
+//   }
+// }
 
-class Truck {
-  drive() {
-    console.log("Driving a truck...");
-  }
-  loadCargo(amount: number) {
-    console.log("Loading Cargo... " + amount);
-  }
-}
+// printEmployeeInfo({
+//   name: "Dat",
+//   privileges: ["Intern React"],
+//   startDate: new Date(),
+// });
 
-type Vehicle = Car | Truck;
+// class Car {
+//   drive() {
+//     console.log("Driving...");
+//   }
+// }
 
-const v1 = new Car();
-const v2 = new Truck();
+// class Truck {
+//   drive() {
+//     console.log("Driving a truck...");
+//   }
+//   loadCargo(amount: number) {
+//     console.log("Loading Cargo... " + amount);
+//   }
+// }
 
-function useVehicle(vehicle: Vehicle) {
-  vehicle.drive();
-  if (vehicle instanceof Truck) {
-    vehicle.loadCargo(1000);
-  }
-}
+// type Vehicle = Car | Truck;
 
-useVehicle(v1);
-useVehicle(v2);
+// const v1 = new Car();
+// const v2 = new Truck();
 
-interface Bird {
-  type: "bird";
-  flyingSpeed: number;
-}
+// function useVehicle(vehicle: Vehicle) {
+//   vehicle.drive();
+//   if (vehicle instanceof Truck) {
+//     vehicle.loadCargo(1000);
+//   }
+// }
 
-interface Horse {
-  type: "horse";
-  runningSpeed: number;
-}
+// useVehicle(v1);
+// useVehicle(v2);
 
-type Animal = Bird | Horse;
+// interface Bird {
+//   type: "bird";
+//   flyingSpeed: number;
+// }
 
-function moveAnimal(animal: Animal) {
-  let speed;
-  switch (animal.type) {
-    case "bird":
-      speed = animal.flyingSpeed;
-      break;
-    case "horse":
-      speed = animal.runningSpeed;
-      break;
-  }
-  console.log("Moving at speed: " + speed);
-}
+// interface Horse {
+//   type: "horse";
+//   runningSpeed: number;
+// }
 
-moveAnimal({ type: "bird", flyingSpeed: 100 });
+// type Animal = Bird | Horse;
 
-const userInputElement = document.getElementById("user-input");
+// function moveAnimal(animal: Animal) {
+//   let speed;
+//   switch (animal.type) {
+//     case "bird":
+//       speed = animal.flyingSpeed;
+//       break;
+//     case "horse":
+//       speed = animal.runningSpeed;
+//       break;
+//   }
+//   console.log("Moving at speed: " + speed);
+// }
 
-if (userInputElement) {
-  (userInputElement as HTMLInputElement).value = "Hi There!";
-}
+// moveAnimal({ type: "bird", flyingSpeed: 100 });
 
-interface ErrorContainer {
-  [prop: string]: string;
-}
+// const userInputElement = document.getElementById("user-input");
 
-const errorBag: ErrorContainer = {
-  email: "Not a valid email",
-  username: "Must start with a capital character!",
-};
+// if (userInputElement) {
+//   (userInputElement as HTMLInputElement).value = "Hi There!";
+// }
+
+// interface ErrorContainer {
+//   [prop: string]: string;
+// }
+
+// const errorBag: ErrorContainer = {
+//   email: "Not a valid email",
+//   username: "Must start with a capital character!",
+// };
